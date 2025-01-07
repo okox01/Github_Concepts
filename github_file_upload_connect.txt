@@ -1,0 +1,61 @@
+# **Connecting VS Code to GitHub and Uploading Files**
+
+# **1. Set Up Git on Your Local Machine**:
+# - Install Git: https://git-scm.com/
+# - Configure Git with your name and email:
+git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"
+
+# **2. Open VS Code**:
+# - Open your project folder in VS Code.
+
+# **3. Initialize a Git Repository**:
+# - Open the terminal in VS Code and run:
+git init
+
+# **4. Add a Remote Repository**:
+# - Create a repository on GitHub and copy the URL.
+# - Link it with your local project:
+git remote add origin https://github.com/yourusername/your-repository-name.git
+
+# **5. Add Files to Staging Area**:
+# - Add all files to the staging area:
+git add .
+
+# **6. Commit the Changes**:
+# - Commit the staged files with a message:
+git commit -m "Initial commit"
+
+# **7. Push Changes to GitHub**:
+# - Push the commits to GitHub:
+git push -u origin main
+
+# **Common Exceptions & Solutions**
+
+# **1. fatal: refusing to merge unrelated histories**:
+# - Cause: Your local and remote repositories have different histories.
+# - Solution: Use --allow-unrelated-histories when pulling:
+git pull origin main --allow-unrelated-histories
+
+# **2. error: src refspec main does not match any**:
+# - Cause: No commits in your local repository.
+# - Solution: Add and commit files before pushing:
+git add .
+git commit -m "Initial commit"
+
+# **3. Updates were rejected because the remote contains work that you do not have locally**:
+# - Cause: The remote has changes you don’t have locally.
+# - Solution: Pull the changes and merge them:
+git pull origin main
+
+# **4. error: failed to push some refs to 'https://github.com/...'**:
+# - Cause: Your local branch is behind the remote branch.
+# - Solution: Pull updates first:
+git pull origin main
+# Then push again:
+git push origin main
+
+# **5. Permission Denied (publickey)**:
+# - Cause: SSH keys are missing or incorrect.
+# - Solution: Switch to HTTPS:
+git remote set-url origin https://github.com/yourusername/your-repository-name.git
