@@ -1,0 +1,5 @@
+structure: 
+mv old_filename new_filename
+
+example:
+mv old_filename.txt new_filename.txt
